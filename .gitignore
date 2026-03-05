@@ -1,0 +1,20 @@
+.env
+__pycache__/
+*.pyc
+venv/
+.venv/
+bin/
+.token_info.json
+
+# ローカル専用データ
+data/scheduler_heartbeat.json
+data/scheduler_stdout.log
+data/scheduler_stderr.log
+data/posting_schedule.json
+data/charts/
+data/tiktok_export/
+
+# タイムスタンプ付きバックアップ（最新版のみ保持）
+data/instagram_posts_2*.csv
+data/instagram_account_2*.json
+data/ai_plan_2*.json

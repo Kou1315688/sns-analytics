@@ -1,0 +1,18 @@
+{
+  "profile": {
+    "total_trophies": 0,
+    "stats": {
+      "sns": 0,
+      "revenue": 0,
+      "body": 0,
+      "lifestyle": 0,
+      "discovery": 0
+    },
+    "streak_current": 0,
+    "streak_best": 0,
+    "tasks_completed": 0,
+    "tasks_failed": 0
+  },
+  "tasks": [],
+  "history": []
+}

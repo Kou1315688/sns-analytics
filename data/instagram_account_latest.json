@@ -1,0 +1,783 @@
+{
+  "demographics": {
+    "age": [
+      {
+        "dimension_keys": [
+          "age"
+        ],
+        "results": [
+          {
+            "dimension_values": [
+              "13-17"
+            ],
+            "value": 649
+          },
+          {
+            "dimension_values": [
+              "18-24"
+            ],
+            "value": 7776
+          },
+          {
+            "dimension_values": [
+              "25-34"
+            ],
+            "value": 4510
+          },
+          {
+            "dimension_values": [
+              "35-44"
+            ],
+            "value": 765
+          },
+          {
+            "dimension_values": [
+              "45-54"
+            ],
+            "value": 391
+          },
+          {
+            "dimension_values": [
+              "55-64"
+            ],
+            "value": 142
+          },
+          {
+            "dimension_values": [
+              "65+"
+            ],
+            "value": 41
+          }
+        ]
+      }
+    ],
+    "gender": [
+      {
+        "dimension_keys": [
+          "gender"
+        ],
+        "results": [
+          {
+            "dimension_values": [
+              "F"
+            ],
+            "value": 3554
+          },
+          {
+            "dimension_values": [
+              "M"
+            ],
+            "value": 2144
+          },
+          {
+            "dimension_values": [
+              "U"
+            ],
+            "value": 8576
+          }
+        ]
+      }
+    ],
+    "city": [
+      {
+        "dimension_keys": [
+          "city"
+        ],
+        "results": [
+          {
+            "dimension_values": [
+              "Edogawa-ku, Tokyo"
+            ],
+            "value": 71
+          },
+          {
+            "dimension_values": [
+              "Kawasaki-shi, Kanagawa Prefecture"
+            ],
+            "value": 231
+          },
+          {
+            "dimension_values": [
+              "Adachi-ku, Tokyo"
+            ],
+            "value": 66
+          },
+          {
+            "dimension_values": [
+              "Chiba-shi, Chiba Prefecture"
+            ],
+            "value": 86
+          },
+          {
+            "dimension_values": [
+              "Minato-ku, Tokyo"
+            ],
+            "value": 76
+          },
+          {
+            "dimension_values": [
+              "Sagamihara-shi, Kanagawa Prefecture"
+            ],
+            "value": 60
+          },
+          {
+            "dimension_values": [
+              "Hong Kong, Hong Kong"
+            ],
+            "value": 795
+          },
+          {
+            "dimension_values": [
+              "Kaohsiung, Kaohsiung"
+            ],
+            "value": 172
+          },
+          {
+            "dimension_values": [
+              "Funabashi-shi, Chiba Prefecture"
+            ],
+            "value": 50
+          },
+          {
+            "dimension_values": [
+              "Nishinomiya-shi, Hyōgo Prefecture"
+            ],
+            "value": 63
+          },
+          {
+            "dimension_values": [
+              "Seoul, Seoul"
+            ],
+            "value": 108
+          },
+          {
+            "dimension_values": [
+              "Niigata-shi, Niigata Prefecture"
+            ],
+            "value": 64
+          },
+          {
+            "dimension_values": [
+              "Shinagawa-ku, Tokyo"
+            ],
+            "value": 84
+          },
+          {
+            "dimension_values": [
+              "Hiroshima, Hiroshima Prefecture"
+            ],
+            "value": 90
+          },
+          {
+            "dimension_values": [
+              "Koto-ku, Tokyo"
+            ],
+            "value": 73
+          },
+          {
+            "dimension_values": [
+              "Taoyüan, Taoyuan City"
+            ],
+            "value": 130
+          },
+          {
+            "dimension_values": [
+              "Nagoya-shi, Aichi Prefecture"
+            ],
+            "value": 231
+          },
+          {
+            "dimension_values": [
+              "Taipei, Taipei"
+            ],
+            "value": 279
+          },
+          {
+            "dimension_values": [
+              "Sapporo-shi, Hokkaido"
+            ],
+            "value": 155
+          },
+          {
+            "dimension_values": [
+              "Fukuoka-shi, Fukuoka Prefecture"
+            ],
+            "value": 173
+          },
+          {
+            "dimension_values": [
+              "Xinbei, New Taipei City"
+            ],
+            "value": 373
+          },
+          {
+            "dimension_values": [
+              "Kobe-shi, Hyōgo Prefecture"
+            ],
+            "value": 123
+          },
+          {
+            "dimension_values": [
+              "Setagaya-ku, Tokyo"
+            ],
+            "value": 233
+          },
+          {
+            "dimension_values": [
+              "Kyoto-shi, Kyoto Prefecture"
+            ],
+            "value": 179
+          },
+          {
+            "dimension_values": [
+              "Ota-ku, Tokyo"
+            ],
+            "value": 113
+          },
+          {
+            "dimension_values": [
+              "Saitama-shi, Saitama Prefecture"
+            ],
+            "value": 131
+          },
+          {
+            "dimension_values": [
+              "Meguro-ku, Tokyo"
+            ],
+            "value": 54
+          },
+          {
+            "dimension_values": [
+              "Shibuya-ku, Tokyo"
+            ],
+            "value": 95
+          },
+          {
+            "dimension_values": [
+              "Suginami-ku, Tokyo"
+            ],
+            "value": 103
+          },
+          {
+            "dimension_values": [
+              "Nakano-ku, Tokyo"
+            ],
+            "value": 57
+          },
+          {
+            "dimension_values": [
+              "Hachioji, Tokyo"
+            ],
+            "value": 79
+          },
+          {
+            "dimension_values": [
+              "Nerima-ku, Tokyo"
+            ],
+            "value": 74
+          },
+          {
+            "dimension_values": [
+              "Bangkok, Bangkok"
+            ],
+            "value": 222
+          },
+          {
+            "dimension_values": [
+              "Okayama-shi, Okayama Prefecture"
+            ],
+            "value": 52
+          },
+          {
+            "dimension_values": [
+              "Kitakyushu-shi, Fukuoka Prefecture"
+            ],
+            "value": 54
+          },
+          {
+            "dimension_values": [
+              "Kumamoto-shi, Kumamoto Prefecture"
+            ],
+            "value": 49
+          },
+          {
+            "dimension_values": [
+              "Taichung, Taichung"
+            ],
+            "value": 224
+          },
+          {
+            "dimension_values": [
+              "Fujisawa-shi, Kanagawa Prefecture"
+            ],
+            "value": 56
+          },
+          {
+            "dimension_values": [
+              "Tainan, Tainan"
+            ],
+            "value": 128
+          },
+          {
+            "dimension_values": [
+              "Toshima, Tokyo"
+            ],
+            "value": 75
+          },
+          {
+            "dimension_values": [
+              "Osaka, Osaka Prefecture"
+            ],
+            "value": 306
+          },
+          {
+            "dimension_values": [
+              "Itabashi-ku, Tokyo"
+            ],
+            "value": 86
+          },
+          {
+            "dimension_values": [
+              "Shinjuku-ku, Tokyo"
+            ],
+            "value": 106
+          },
+          {
+            "dimension_values": [
+              "Yokohama, Kanagawa Prefecture"
+            ],
+            "value": 597
+          },
+          {
+            "dimension_values": [
+              "Sendai, Miyagi Prefecture"
+            ],
+            "value": 106
+          }
+        ]
+      }
+    ],
+    "country": [
+      {
+        "dimension_keys": [
+          "country"
+        ],
+        "results": [
+          {
+            "dimension_values": [
+              "DE"
+            ],
+            "value": 21
+          },
+          {
+            "dimension_values": [
+              "BD"
+            ],
+            "value": 16
+          },
+          {
+            "dimension_values": [
+              "RU"
+            ],
+            "value": 24
+          },
+          {
+            "dimension_values": [
+              "HK"
+            ],
+            "value": 795
+          },
+          {
+            "dimension_values": [
+              "TW"
+            ],
+            "value": 1612
+          },
+          {
+            "dimension_values": [
+              "JP"
+            ],
+            "value": 9195
+          },
+          {
+            "dimension_values": [
+              "NZ"
+            ],
+            "value": 10
+          },
+          {
+            "dimension_values": [
+              "FR"
+            ],
+            "value": 22
+          },
+          {
+            "dimension_values": [
+              "HU"
+            ],
+            "value": 5
+          },
+          {
+            "dimension_values": [
+              "SA"
+            ],
+            "value": 22
+          },
+          {
+            "dimension_values": [
+              "BR"
+            ],
+            "value": 46
+          },
+          {
+            "dimension_values": [
+              "SG"
+            ],
+            "value": 42
+          },
+          {
+            "dimension_values": [
+              "DZ"
+            ],
+            "value": 10
+          },
+          {
+            "dimension_values": [
+              "GB"
+            ],
+            "value": 88
+          },
+          {
+            "dimension_values": [
+              "ID"
+            ],
+            "value": 155
+          },
+          {
+            "dimension_values": [
+              "KH"
+            ],
+            "value": 45
+          },
+          {
+            "dimension_values": [
+              "CA"
+            ],
+            "value": 48
+          },
+          {
+            "dimension_values": [
+              "US"
+            ],
+            "value": 106
+          },
+          {
+            "dimension_values": [
+              "MM"
+            ],
+            "value": 16
+          },
+          {
+            "dimension_values": [
+              "EG"
+            ],
+            "value": 8
+          },
+          {
+            "dimension_values": [
+              "MO"
+            ],
+            "value": 18
+          },
+          {
+            "dimension_values": [
+              "CH"
+            ],
+            "value": 7
+          },
+          {
+            "dimension_values": [
+              "IN"
+            ],
+            "value": 19
+          },
+          {
+            "dimension_values": [
+              "KR"
+            ],
+            "value": 304
+          },
+          {
+            "dimension_values": [
+              "IQ"
+            ],
+            "value": 10
+          },
+          {
+            "dimension_values": [
+              "IR"
+            ],
+            "value": 9
+          },
+          {
+            "dimension_values": [
+              "CL"
+            ],
+            "value": 11
+          },
+          {
+            "dimension_values": [
+              "IT"
+            ],
+            "value": 15
+          },
+          {
+            "dimension_values": [
+              "MX"
+            ],
+            "value": 40
+          },
+          {
+            "dimension_values": [
+              "CN"
+            ],
+            "value": 351
+          },
+          {
+            "dimension_values": [
+              "CO"
+            ],
+            "value": 10
+          },
+          {
+            "dimension_values": [
+              "MY"
+            ],
+            "value": 100
+          },
+          {
+            "dimension_values": [
+              "GT"
+            ],
+            "value": 6
+          },
+          {
+            "dimension_values": [
+              "ES"
+            ],
+            "value": 14
+          },
+          {
+            "dimension_values": [
+              "AU"
+            ],
+            "value": 61
+          },
+          {
+            "dimension_values": [
+              "TH"
+            ],
+            "value": 598
+          },
+          {
+            "dimension_values": [
+              "LA"
+            ],
+            "value": 7
+          },
+          {
+            "dimension_values": [
+              "PE"
+            ],
+            "value": 19
+          },
+          {
+            "dimension_values": [
+              "CZ"
+            ],
+            "value": 6
+          },
+          {
+            "dimension_values": [
+              "PH"
+            ],
+            "value": 108
+          },
+          {
+            "dimension_values": [
+              "VN"
+            ],
+            "value": 129
+          },
+          {
+            "dimension_values": [
+              "TN"
+            ],
+            "value": 6
+          },
+          {
+            "dimension_values": [
+              "PL"
+            ],
+            "value": 7
+          },
+          {
+            "dimension_values": [
+              "NL"
+            ],
+            "value": 7
+          },
+          {
+            "dimension_values": [
+              "TR"
+            ],
+            "value": 11
+          }
+        ]
+      }
+    ]
+  },
+  "reach_data": [
+    {
+      "name": "reach",
+      "period": "day",
+      "values": [
+        {
+          "value": 3642,
+          "end_time": "2026-01-31T08:00:00+0000"
+        },
+        {
+          "value": 1207,
+          "end_time": "2026-02-01T08:00:00+0000"
+        },
+        {
+          "value": 1897,
+          "end_time": "2026-02-02T08:00:00+0000"
+        },
+        {
+          "value": 1166,
+          "end_time": "2026-02-03T08:00:00+0000"
+        },
+        {
+          "value": 237,
+          "end_time": "2026-02-04T08:00:00+0000"
+        },
+        {
+          "value": 246,
+          "end_time": "2026-02-05T08:00:00+0000"
+        },
+        {
+          "value": 17251,
+          "end_time": "2026-02-06T08:00:00+0000"
+        },
+        {
+          "value": 13122,
+          "end_time": "2026-02-07T08:00:00+0000"
+        },
+        {
+          "value": 3294,
+          "end_time": "2026-02-08T08:00:00+0000"
+        },
+        {
+          "value": 2190,
+          "end_time": "2026-02-09T08:00:00+0000"
+        },
+        {
+          "value": 2437,
+          "end_time": "2026-02-10T08:00:00+0000"
+        },
+        {
+          "value": 3708,
+          "end_time": "2026-02-11T08:00:00+0000"
+        },
+        {
+          "value": 3795,
+          "end_time": "2026-02-12T08:00:00+0000"
+        },
+        {
+          "value": 2741,
+          "end_time": "2026-02-13T08:00:00+0000"
+        },
+        {
+          "value": 854,
+          "end_time": "2026-02-14T08:00:00+0000"
+        },
+        {
+          "value": 645,
+          "end_time": "2026-02-15T08:00:00+0000"
+        },
+        {
+          "value": 556,
+          "end_time": "2026-02-16T08:00:00+0000"
+        },
+        {
+          "value": 1756,
+          "end_time": "2026-02-17T08:00:00+0000"
+        },
+        {
+          "value": 1723,
+          "end_time": "2026-02-18T08:00:00+0000"
+        },
+        {
+          "value": 516,
+          "end_time": "2026-02-19T08:00:00+0000"
+        },
+        {
+          "value": 534,
+          "end_time": "2026-02-20T08:00:00+0000"
+        },
+        {
+          "value": 493,
+          "end_time": "2026-02-21T08:00:00+0000"
+        },
+        {
+          "value": 454,
+          "end_time": "2026-02-22T08:00:00+0000"
+        },
+        {
+          "value": 402,
+          "end_time": "2026-02-23T08:00:00+0000"
+        },
+        {
+          "value": 417,
+          "end_time": "2026-02-24T08:00:00+0000"
+        },
+        {
+          "value": 411,
+          "end_time": "2026-02-25T08:00:00+0000"
+        },
+        {
+          "value": 403,
+          "end_time": "2026-02-26T08:00:00+0000"
+        },
+        {
+          "value": 365,
+          "end_time": "2026-02-27T08:00:00+0000"
+        },
+        {
+          "value": 389,
+          "end_time": "2026-02-28T08:00:00+0000"
+        },
+        {
+          "value": 430,
+          "end_time": "2026-03-01T08:00:00+0000"
+        }
+      ],
+      "title": "リーチ",
+      "description": "ビジネスアカウントのメディアオブジェクトの合計ユニークビュー数です",
+      "id": "17841459231657089/insights/reach/day"
+    }
+  ],
+  "engaged_data": [
+    {
+      "name": "accounts_engaged",
+      "period": "day",
+      "title": "アクションを実行したアカウント",
+      "description": "広告を含め、あなたのコンテンツに対するインタラクションがあったアカウントの数です。コンテンツに該当するのは投稿、ストーリーズ、リール動画、動画、ライブ動画などです。インタラクションには、「いいね！」、保存、コメント、シェア、返信などのアクションが含まれます。これらの指標は推定値であり、現在開発中です。",
+      "total_value": {
+        "value": 1698
+      },
+      "id": "17841459231657089/insights/accounts_engaged/day"
+    }
+  ]
+}
