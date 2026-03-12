@@ -13,23 +13,36 @@ BASE_DIR = Path(__file__).parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
+
+def _secret(key: str, default: str = "") -> str:
+    """st.secrets（Streamlit Cloud）→ 環境変数 → デフォルト の順で取得"""
+    try:
+        import streamlit as st
+        val = st.secrets.get(key, "")
+        if val:
+            return val
+    except Exception:
+        pass
+    return os.getenv(key, default)
+
+
 # Instagram Graph API
-INSTAGRAM_ACCESS_TOKEN = os.getenv("INSTAGRAM_ACCESS_TOKEN", "")
-INSTAGRAM_USER_ID = os.getenv("INSTAGRAM_USER_ID", "")
-INSTAGRAM_APP_ID = os.getenv("INSTAGRAM_APP_ID", "")
-INSTAGRAM_APP_SECRET = os.getenv("INSTAGRAM_APP_SECRET", "")
+INSTAGRAM_ACCESS_TOKEN = _secret("INSTAGRAM_ACCESS_TOKEN")
+INSTAGRAM_USER_ID = _secret("INSTAGRAM_USER_ID")
+INSTAGRAM_APP_ID = _secret("INSTAGRAM_APP_ID")
+INSTAGRAM_APP_SECRET = _secret("INSTAGRAM_APP_SECRET")
 
 GRAPH_API_BASE = "https://graph.facebook.com/v21.0"
 
 # Google Gemini API
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY = _secret("GEMINI_API_KEY")
 
 # LINE Notify
-LINE_NOTIFY_TOKEN = os.getenv("LINE_NOTIFY_TOKEN", "")
+LINE_NOTIFY_TOKEN = _secret("LINE_NOTIFY_TOKEN")
 
 # Gmail (リマインド通知用)
-GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS", "")
-GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "")
+GMAIL_ADDRESS = _secret("GMAIL_ADDRESS")
+GMAIL_APP_PASSWORD = _secret("GMAIL_APP_PASSWORD")
 
 # トークン情報ファイル
 TOKEN_FILE = BASE_DIR / ".token_info.json"

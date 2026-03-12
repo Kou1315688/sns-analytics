@@ -21,6 +21,7 @@ from posting_scheduler import (
     get_todays_posts, get_upcoming_posts,
     save_auto_generated_schedule, update_settings, get_settings, get_history,
 )
+from github_sync import sync_data_files, is_cloud_environment
 
 st.set_page_config(
     page_title="SNS分析ダッシュボード",
@@ -150,11 +151,22 @@ with col_btn4:
 
 refresh_all = st.sidebar.button("⚡ 全て更新", use_container_width=True)
 
+# GitHub同期ヘルパー
+def _sync_after_update(file_list):
+    """クラウド環境ならGitHubに自動同期"""
+    if is_cloud_environment():
+        with st.spinner("GitHubに同期中..."):
+            n = sync_data_files(file_list)
+            if n > 0:
+                st.sidebar.success(f"{n}ファイル同期完了")
+
 # ボタン処理
 if refresh_ig or refresh_all:
     with st.sidebar:
         with st.spinner("Instagram データ取得中..."):
-            run_script("instagram/fetch.py", "Instagram データ取得")
+            ok = run_script("instagram/fetch.py", "Instagram データ取得")
+        if ok:
+            _sync_after_update(["instagram_posts_latest.csv", "instagram_account_latest.json"])
         if refresh_all:
             pass  # 続けて分析も実行
         else:
@@ -163,7 +175,9 @@ if refresh_ig or refresh_all:
 if refresh_analyze or refresh_all:
     with st.sidebar:
         with st.spinner("分析実行中..."):
-            run_script("instagram/analyze.py", "Instagram 分析")
+            ok = run_script("instagram/analyze.py", "Instagram 分析")
+        if ok:
+            _sync_after_update(["instagram_analyzed.csv"])
         if refresh_all:
             pass
         else:
@@ -172,7 +186,9 @@ if refresh_analyze or refresh_all:
 if refresh_research or refresh_all:
     with st.sidebar:
         with st.spinner("トレンドリサーチ中..."):
-            run_script("research/trend_research.py", "トレンドリサーチ")
+            ok = run_script("research/trend_research.py", "トレンドリサーチ")
+        if ok:
+            _sync_after_update(["hashtag_research_latest.csv", "research_results_latest.json"])
         if refresh_all:
             pass
         else:
@@ -181,7 +197,9 @@ if refresh_research or refresh_all:
 if refresh_plans or refresh_all:
     with st.sidebar:
         with st.spinner("投稿案生成中..."):
-            run_script("content_planner.py", "投稿案生成")
+            ok = run_script("content_planner.py", "投稿案生成")
+        if ok:
+            _sync_after_update(["content_plans_latest.json", "content_plans_latest.csv"])
     st.rerun()
 
 st.sidebar.markdown("---")
@@ -284,10 +302,12 @@ if page == "🏠 概要":
                 with tc2:
                     if st.button("✅ 投稿完了", key=f"done_{tp['id']}", use_container_width=True):
                         mark_posted(tp["id"])
+                        _sync_after_update(["posting_schedule.json"])
                         st.rerun()
                 with tc3:
                     if st.button("⏭️ スキップ", key=f"skip_{tp['id']}", use_container_width=True):
                         mark_skipped(tp["id"])
+                        _sync_after_update(["posting_schedule.json"])
                         st.rerun()
 
     # 投稿案プレビュー
@@ -1013,15 +1033,18 @@ elif page == "📅 投稿スケジュール":
                         if p["status"] in ("scheduled", "reminded"):
                             if st.button("✅ 完了", key=f"wk_done_{p['id']}", use_container_width=True):
                                 mark_posted(p["id"])
+                                _sync_after_update(["posting_schedule.json"])
                                 st.rerun()
                     with col_act2:
                         if p["status"] in ("scheduled", "reminded"):
                             if st.button("⏭️", key=f"wk_skip_{p['id']}", use_container_width=True):
                                 mark_skipped(p["id"])
+                                _sync_after_update(["posting_schedule.json"])
                                 st.rerun()
                     with col_del:
                         if st.button("🗑️", key=f"wk_del_{p['id']}", use_container_width=True):
                             delete_scheduled_post(p["id"])
+                            _sync_after_update(["posting_schedule.json"])
                             st.rerun()
 
                 st.markdown("---")
@@ -1077,6 +1100,7 @@ elif page == "📅 投稿スケジュール":
                     reminder_minutes=add_reminder,
                 )
                 st.success(f"「{add_title}」をスケジュールに追加しました！")
+                _sync_after_update(["posting_schedule.json"])
                 st.rerun()
             elif submitted:
                 st.warning("テーマを入力してください")
@@ -1118,6 +1142,7 @@ elif page == "📅 投稿スケジュール":
                     save_auto_generated_schedule(preview)
                     st.session_state.pop("schedule_preview", None)
                     st.success(f"{len(preview)}件のスケジュールを保存しました！")
+                    _sync_after_update(["posting_schedule.json"])
                     st.rerun()
 
                 if st.button("🔄 再生成", use_container_width=True):
