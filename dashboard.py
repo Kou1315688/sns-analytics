@@ -25,8 +25,14 @@ from github_sync import sync_data_files, is_cloud_environment
 
 st.set_page_config(
     page_title="SNS分析ダッシュボード",
-    page_icon="📊",
+    page_icon="static/apple-touch-icon.png",
     layout="wide",
+)
+
+# Apple Touch Icon（iPhoneホーム画面用）
+st.markdown(
+    '<link rel="apple-touch-icon" href="./app/static/apple-touch-icon.png">',
+    unsafe_allow_html=True,
 )
 
 # モバイル対応CSS
