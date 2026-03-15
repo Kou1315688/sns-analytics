@@ -29,31 +29,218 @@ st.set_page_config(
     layout="wide",
 )
 
-# PWA対応 + Apple Touch Icon
+# PWA対応
 st.markdown("""
 <link rel="apple-touch-icon" href="./app/static/apple-touch-icon.png">
 <link rel="manifest" href="./app/static/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="SNS分析">
-<meta name="theme-color" content="#0E1117">
+<meta name="theme-color" content="#080b16">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 """, unsafe_allow_html=True)
 
-# モバイル対応CSS
+# ── サイバーパンク UI テーマ ──
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ベース */
+html, body, [data-testid="stAppViewContainer"] {
+    font-family: 'Inter', sans-serif !important;
+}
+.main .block-container { max-width: 1200px; padding-top: 2rem; }
+
+/* サイドバー */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #080b16 0%, #0d1224 50%, #0a0f20 100%) !important;
+    border-right: 1px solid rgba(0, 240, 255, 0.1) !important;
+}
+[data-testid="stSidebar"] .stMarkdown h1,
+[data-testid="stSidebar"] .stMarkdown h2,
+[data-testid="stSidebar"] .stMarkdown h3 {
+    color: #00f0ff !important;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+[data-testid="stSidebar"] hr {
+    border-color: rgba(0, 240, 255, 0.15) !important;
+}
+
+/* ラジオボタン（ナビゲーション） */
+[data-testid="stSidebar"] .stRadio > label { color: #8892a8 !important; }
+[data-testid="stSidebar"] .stRadio [data-testid="stMarkdownContainer"] p {
+    font-size: 0.95rem !important;
+}
+
+/* 見出し */
+h1 {
+    color: #00f0ff !important;
+    text-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+    font-weight: 700 !important;
+    letter-spacing: -0.5px !important;
+}
+h2, h3 {
+    color: #e0e6f0 !important;
+    font-weight: 600 !important;
+}
+
+/* メトリクスカード */
+[data-testid="stMetric"] {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(120, 50, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(0, 240, 255, 0.12) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+}
+[data-testid="stMetric"] [data-testid="stMetricLabel"] {
+    color: #6b7b9e !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+[data-testid="stMetric"] [data-testid="stMetricValue"] {
+    color: #00f0ff !important;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    font-weight: 700 !important;
+}
+
+/* ボタン */
+.stButton > button {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(120, 50, 255, 0.1) 100%) !important;
+    border: 1px solid rgba(0, 240, 255, 0.3) !important;
+    color: #00f0ff !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+.stButton > button:hover {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(120, 50, 255, 0.2) 100%) !important;
+    border-color: rgba(0, 240, 255, 0.6) !important;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15), inset 0 0 20px rgba(0, 240, 255, 0.05) !important;
+}
+/* プライマリボタン */
+button[kind="primary"] {
+    background: linear-gradient(135deg, #00f0ff 0%, #7832ff 100%) !important;
+    color: #080b16 !important;
+    border: none !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+}
+button[kind="primary"]:hover {
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(120, 50, 255, 0.2) !important;
+}
+
+/* タブ */
+.stTabs [data-baseweb="tab-list"] {
+    background: rgba(0, 240, 255, 0.03) !important;
+    border-radius: 10px !important;
+    padding: 4px !important;
+    gap: 4px !important;
+    border: 1px solid rgba(0, 240, 255, 0.08) !important;
+}
+.stTabs [data-baseweb="tab"] {
+    border-radius: 8px !important;
+    color: #6b7b9e !important;
+    font-weight: 500 !important;
+}
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(120, 50, 255, 0.1) 100%) !important;
+    color: #00f0ff !important;
+}
+
+/* Expander */
+[data-testid="stExpander"] {
+    background: rgba(0, 240, 255, 0.02) !important;
+    border: 1px solid rgba(0, 240, 255, 0.1) !important;
+    border-radius: 10px !important;
+}
+[data-testid="stExpander"] summary {
+    color: #c0c8d8 !important;
+    font-weight: 500 !important;
+}
+
+/* データフレーム */
+[data-testid="stDataFrame"] {
+    border: 1px solid rgba(0, 240, 255, 0.1) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+/* 入力フィールド */
+.stTextInput > div > div, .stNumberInput > div > div, .stTextArea > div > div,
+.stSelectbox > div > div, .stMultiSelect > div > div, .stDateInput > div > div {
+    background: rgba(0, 240, 255, 0.03) !important;
+    border-color: rgba(0, 240, 255, 0.15) !important;
+    border-radius: 8px !important;
+}
+.stTextInput > div > div:focus-within, .stNumberInput > div > div:focus-within,
+.stTextArea > div > div:focus-within {
+    border-color: #00f0ff !important;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.1) !important;
+}
+
+/* アラート・info */
+.stAlert {
+    border-radius: 10px !important;
+    border: 1px solid rgba(0, 240, 255, 0.15) !important;
+}
+[data-testid="stNotification"] {
+    border-radius: 10px !important;
+}
+
+/* 区切り線 */
+hr {
+    border-color: rgba(0, 240, 255, 0.08) !important;
+}
+
+/* コードブロック */
+.stCodeBlock {
+    border: 1px solid rgba(0, 240, 255, 0.1) !important;
+    border-radius: 8px !important;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #080b16; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00f0ff33, #7832ff33);
+    border-radius: 3px;
+}
+
+/* チェックボックス */
+.stCheckbox > label > span:first-child {
+    border-color: rgba(0, 240, 255, 0.3) !important;
+}
+
+/* モバイル対応 */
 @media (max-width: 768px) {
     .block-container { padding: 1rem 0.5rem !important; }
     [data-testid="stSidebar"] { min-width: 200px !important; }
     .stButton > button { padding: 0.4rem 0.8rem !important; font-size: 0.85rem !important; }
+    h1 { font-size: 1.5rem !important; }
 }
-/* PWAフルスクリーン時のセーフエリア対応 */
 @supports (padding-top: env(safe-area-inset-top)) {
     .block-container { padding-top: calc(1rem + env(safe-area-inset-top)) !important; }
 }
 </style>
 """, unsafe_allow_html=True)
+
+# ── Plotly グローバルテーマ（サイバーパンク） ──
+import plotly.io as pio
+
+_cyber_template = go.layout.Template()
+_cyber_template.layout = go.Layout(
+    paper_bgcolor="rgba(0,0,0,0)",
+    plot_bgcolor="rgba(0,0,0,0)",
+    font=dict(family="Inter, sans-serif", color="#c0c8d8"),
+    title=dict(font=dict(color="#e0e6f0", size=16)),
+    xaxis=dict(gridcolor="rgba(0,240,255,0.06)", zerolinecolor="rgba(0,240,255,0.1)"),
+    yaxis=dict(gridcolor="rgba(0,240,255,0.06)", zerolinecolor="rgba(0,240,255,0.1)"),
+    colorway=["#00f0ff", "#7832ff", "#ff3e8a", "#ffb800", "#00ff88", "#ff6b35", "#36a2eb", "#c792ea"],
+    legend=dict(font=dict(color="#8892a8")),
+)
+pio.templates["cyberpunk"] = _cyber_template
+pio.templates.default = "plotly_dark+cyberpunk"
 
 # ── データ読み込み（キャッシュなし：常に最新を読み込む） ──
 
@@ -496,7 +683,7 @@ elif page == "📸 Instagram分析":
                 fig = px.bar(by_cat.sort_values("平均ER", ascending=True),
                              x="平均ER", y="primary_category", orientation="h",
                              title="カテゴリ別 平均エンゲージメント率",
-                             color="平均ER", color_continuous_scale="viridis")
+                             color="平均ER", color_continuous_scale=[[0, "#0f1629"], [0.5, "#00f0ff"], [1, "#7832ff"]])
                 st.plotly_chart(fig, use_container_width=True)
 
             with col2:
@@ -593,13 +780,13 @@ elif page == "🎵 TikTok分析":
             fig = make_subplots(specs=[[{"secondary_y": True}]])
             fig.add_trace(
                 go.Bar(x=sorted_df["timestamp"], y=sorted_df["views"],
-                       name="再生数", marker_color="rgba(255, 99, 71, 0.7)"),
+                       name="再生数", marker_color="rgba(0, 240, 255, 0.5)"),
                 secondary_y=False,
             )
             if "engagement_rate" in tk_df.columns:
                 fig.add_trace(
                     go.Scatter(x=sorted_df["timestamp"], y=sorted_df["engagement_rate"],
-                               mode="lines+markers", name="ER(%)", line=dict(color="blue")),
+                               mode="lines+markers", name="ER(%)", line=dict(color="#7832ff")),
                     secondary_y=True,
                 )
             fig.update_layout(title="再生数 & エンゲージメント率推移", height=500)
@@ -676,7 +863,7 @@ elif page == "🎵 TikTok分析":
                 fig = px.bar(by_cat.sort_values("平均再生数", ascending=True),
                              x="平均再生数", y="primary_category", orientation="h",
                              title="カテゴリ別 平均再生数",
-                             color="平均再生数", color_continuous_scale="reds")
+                             color="平均再生数", color_continuous_scale=[[0, "#0f1629"], [0.5, "#ff3e8a"], [1, "#7832ff"]])
                 st.plotly_chart(fig, use_container_width=True)
             with col2:
                 fig = px.pie(by_cat, names="primary_category", values="投稿数",
@@ -708,7 +895,7 @@ elif page == "🔍 トレンドリサーチ":
         fig = px.bar(by_tag.sort_values("平均", ascending=True),
                      x="平均", y="ハッシュタグ", orientation="h",
                      title="ハッシュタグ別 平均エンゲージメント（トップ投稿）",
-                     color="平均", color_continuous_scale="viridis")
+                     color="平均", color_continuous_scale=[[0, "#0f1629"], [0.5, "#00f0ff"], [1, "#7832ff"]])
         fig.update_layout(height=max(400, len(by_tag) * 25))
         st.plotly_chart(fig, use_container_width=True)
 

@@ -360,12 +360,12 @@ def calculate_future_vision(data: dict) -> Dict[str, dict]:
 def inject_surge_css():
     st.markdown("""
     <style>
-    /* ── SURGE Global Theme ── */
+    /* ── SURGE Global Theme (Cyberpunk) ── */
     .surge-title {
         font-size: 2.8rem;
         font-weight: 900;
         text-align: center;
-        background: linear-gradient(135deg, #FF6B35, #FFD700, #FF4444);
+        background: linear-gradient(135deg, #00f0ff, #7832ff, #ff3e8a);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-shadow: none;
@@ -374,7 +374,7 @@ def inject_surge_css():
     }
     .surge-subtitle {
         text-align: center;
-        color: #888;
+        color: #6b7b9e;
         font-size: 0.9rem;
         margin-top: -10px;
         margin-bottom: 20px;
@@ -382,64 +382,65 @@ def inject_surge_css():
 
     /* ── Profile Card ── */
     .profile-card {
-        background: linear-gradient(135deg, #1a1a2e, #16213e);
-        border: 2px solid #FFD700;
+        background: linear-gradient(135deg, #0f1629, #080b16);
+        border: 2px solid #00f0ff;
         border-radius: 16px;
         padding: 20px;
         margin-bottom: 20px;
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
     }
     .profile-level {
         font-size: 2rem;
         font-weight: 900;
-        color: #FFD700;
+        color: #00f0ff;
         text-align: center;
+        text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
     }
     .profile-name {
         font-size: 1.1rem;
-        color: #FFD700;
+        color: #00f0ff;
         text-align: center;
         font-weight: 700;
     }
     .trophy-count {
         font-size: 1.5rem;
         font-weight: 800;
-        color: #FFD700;
+        color: #00f0ff;
         text-align: center;
     }
 
     /* ── Progress Bar ── */
     .xp-bar-outer {
-        background: #1a1a2e;
+        background: #080b16;
         border-radius: 10px;
         height: 16px;
-        border: 1px solid #333;
+        border: 1px solid rgba(0, 240, 255, 0.2);
         overflow: hidden;
         margin: 8px 0;
     }
     .xp-bar-inner {
         height: 100%;
         border-radius: 10px;
-        background: linear-gradient(90deg, #FF6B35, #FFD700);
+        background: linear-gradient(90deg, #7832ff, #00f0ff);
         transition: width 0.5s ease;
     }
 
     /* ── Boss Card ── */
     .boss-card {
-        background: linear-gradient(145deg, #1a0000, #2d0000);
-        border: 2px solid #FF4444;
+        background: linear-gradient(145deg, #0d0018, #1a002d);
+        border: 2px solid #7832ff;
         border-radius: 16px;
         padding: 20px;
         margin: 10px 0;
-        box-shadow: 0 0 25px rgba(255, 68, 68, 0.2);
+        box-shadow: 0 0 25px rgba(120, 50, 255, 0.2);
         transition: transform 0.2s;
     }
     .boss-card:hover {
         transform: scale(1.02);
     }
     .boss-card-s {
-        background: linear-gradient(145deg, #0a0a1a, #1a1a2e);
-        border: 1px solid #444;
+        background: linear-gradient(145deg, #080b16, #0f1629);
+        border: 1px solid rgba(0, 240, 255, 0.15);
         border-radius: 12px;
         padding: 15px;
         margin: 8px 0;
@@ -447,40 +448,40 @@ def inject_surge_css():
     .boss-name {
         font-size: 1.3rem;
         font-weight: 800;
-        color: #FF6B35;
+        color: #7832ff;
     }
     .boss-name-s {
         font-size: 1.1rem;
         font-weight: 700;
-        color: #ddd;
+        color: #c0c8d8;
     }
     .impact-stars {
-        color: #FFD700;
+        color: #00f0ff;
         font-size: 1.2rem;
         letter-spacing: 2px;
     }
 
     /* ── HP Bar ── */
     .hp-bar-outer {
-        background: #1a1a1a;
+        background: #080b16;
         border-radius: 8px;
         height: 24px;
-        border: 2px solid #FF4444;
+        border: 2px solid #ff3e8a;
         overflow: hidden;
         margin: 8px 0;
     }
     .hp-bar-inner {
         height: 100%;
         border-radius: 6px;
-        background: linear-gradient(90deg, #FF0000, #FF6600, #00FF88);
+        background: linear-gradient(90deg, #ff3e8a, #7832ff, #00ff88);
         transition: width 0.3s ease;
     }
 
     /* ── Trophy Badge ── */
     .trophy-badge {
         display: inline-block;
-        background: linear-gradient(135deg, #FFD700, #FF8C00);
-        color: #000;
+        background: linear-gradient(135deg, #00f0ff, #7832ff);
+        color: #080b16;
         font-weight: 900;
         padding: 4px 12px;
         border-radius: 20px;
@@ -500,7 +501,7 @@ def inject_surge_css():
     /* ── Streak Badge ── */
     .streak-badge {
         display: inline-block;
-        background: linear-gradient(135deg, #FF4444, #FF6B35);
+        background: linear-gradient(135deg, #ff3e8a, #7832ff);
         color: #fff;
         font-weight: 800;
         padding: 4px 14px;
@@ -510,29 +511,29 @@ def inject_surge_css():
 
     /* ── Penalty Box ── */
     .penalty-box {
-        background: linear-gradient(135deg, #2d0000, #1a0000);
-        border: 2px solid #FF0000;
+        background: linear-gradient(135deg, #1a0020, #0d0018);
+        border: 2px solid #ff3e8a;
         border-radius: 12px;
         padding: 15px;
         margin: 10px 0;
-        color: #FF6666;
+        color: #ff6b9e;
         font-weight: 600;
     }
 
     /* ── Debuff Warning ── */
     .debuff-warning {
-        background: linear-gradient(135deg, #1a0a00, #2d1500);
-        border-left: 4px solid #FF6600;
+        background: linear-gradient(135deg, #0d0018, #1a0020);
+        border-left: 4px solid #7832ff;
         border-radius: 8px;
         padding: 12px 16px;
         margin: 8px 0;
-        color: #FFaa66;
+        color: #c792ea;
     }
 
     /* ── Victory Card ── */
     .victory-card {
-        background: linear-gradient(135deg, #001a00, #002d00);
-        border: 2px solid #00FF88;
+        background: linear-gradient(135deg, #001a10, #002d1a);
+        border: 2px solid #00ff88;
         border-radius: 16px;
         padding: 25px;
         text-align: center;
@@ -541,18 +542,18 @@ def inject_surge_css():
     .victory-title {
         font-size: 2rem;
         font-weight: 900;
-        color: #00FF88;
+        color: #00ff88;
     }
     .victory-trophies {
         font-size: 2.5rem;
         font-weight: 900;
-        color: #FFD700;
+        color: #00f0ff;
     }
 
     /* ── Sidebar Surge ── */
     .sidebar-surge-box {
-        background: linear-gradient(135deg, #1a1a2e, #0d1117);
-        border: 1px solid #FFD700;
+        background: linear-gradient(135deg, #0f1629, #080b16);
+        border: 1px solid rgba(0, 240, 255, 0.3);
         border-radius: 12px;
         padding: 12px;
         margin: 8px 0;
@@ -577,8 +578,8 @@ def render_sidebar_surge(data: dict):
     st.sidebar.markdown("---")
     st.sidebar.markdown(
         f'<div class="sidebar-surge-box">'
-        f'<div style="font-size:1.4rem;font-weight:900;color:#FFD700;">{icon} Lv.{level} {name}</div>'
-        f'<div style="color:#FFD700;font-size:1.2rem;font-weight:800;">🏆 {trophies}</div>'
+        f'<div style="font-size:1.4rem;font-weight:900;color:#00f0ff;text-shadow:0 0 15px rgba(0,240,255,0.3);">{icon} Lv.{level} {name}</div>'
+        f'<div style="color:#00f0ff;font-size:1.2rem;font-weight:800;">🏆 {trophies}</div>'
         f'<div class="xp-bar-outer"><div class="xp-bar-inner" style="width:{progress*100:.0f}%"></div></div>'
         f'<div style="color:#888;font-size:0.75rem;">{trophies} / {next_thresh}</div>'
         + (f'<div class="streak-badge">🔥 {streak} STREAK</div>' if streak > 0 else '')
@@ -625,9 +626,9 @@ def _render_radar_chart(data: dict):
         r=values,
         theta=categories_list,
         fill='toself',
-        fillcolor='rgba(255, 107, 53, 0.3)',
-        line=dict(color='#FFD700', width=3),
-        marker=dict(size=8, color='#FFD700'),
+        fillcolor='rgba(0, 240, 255, 0.15)',
+        line=dict(color='#00f0ff', width=3),
+        marker=dict(size=8, color='#00f0ff'),
     ))
 
     max_val = max(max(values), 10)
@@ -679,7 +680,7 @@ def _render_boss_card(task: dict, show_debuff: bool = False, data: Optional[dict
         f'<div class="impact-stars">{stars}</div>'
         f'</div>'
         f'<div class="{name_class}" style="{size}">{task["task_name"]}</div>'
-        f'<div style="color:#FFD700;font-weight:700;margin-top:4px;">🏆 +{trophies}{bonus_text}</div>'
+        f'<div style="color:#00f0ff;font-weight:700;margin-top:4px;">🏆 +{trophies}{bonus_text}</div>'
         + (f'<div class="penalty-box">⚠️ PENALTY: {task["penalty"]}</div>' if task.get("penalty") else '')
         + '</div>',
         unsafe_allow_html=True,
@@ -703,39 +704,39 @@ def _render_arena_timer(task: dict):
 
     html = f"""
     <div id="arena-wrap" style="
-        background: linear-gradient(135deg, #1a0000, #0d0000);
-        border: 3px solid #FF4444;
+        background: linear-gradient(135deg, #0d0018, #080b16);
+        border: 3px solid #7832ff;
         border-radius: 20px;
         padding: 30px;
         text-align: center;
-        box-shadow: 0 0 40px rgba(255,68,68,0.3);
+        box-shadow: 0 0 40px rgba(120,50,255,0.3);
     ">
-        <div style="font-size:1.2rem;color:#FF6B35;font-weight:800;letter-spacing:3px;">
+        <div style="font-size:1.2rem;color:#ff3e8a;font-weight:800;letter-spacing:3px;">
             ⚔️ ARENA MODE ⚔️
         </div>
-        <div style="font-size:1.5rem;color:#fff;font-weight:800;margin:10px 0;">
+        <div style="font-size:1.5rem;color:#e0e6f0;font-weight:800;margin:10px 0;">
             {cat_info['icon']} {task['task_name']}
         </div>
         <div style="margin:15px 0;">
-            <div style="background:#1a1a1a;border-radius:10px;height:28px;border:2px solid #FF4444;overflow:hidden;">
+            <div style="background:#080b16;border-radius:10px;height:28px;border:2px solid #ff3e8a;overflow:hidden;">
                 <div id="hp-fill" style="height:100%;border-radius:8px;
-                    background:linear-gradient(90deg,#FF0000,#FF6600,#00FF88);width:100%;
+                    background:linear-gradient(90deg,#ff3e8a,#7832ff,#00ff88);width:100%;
                     transition:width 0.5s linear;"></div>
             </div>
             <div style="display:flex;justify-content:space-between;margin-top:4px;">
-                <span style="color:#FF6666;font-size:0.8rem;">BOSS HP</span>
-                <span id="hp-pct" style="color:#FF6666;font-size:0.8rem;">100%</span>
+                <span style="color:#ff6b9e;font-size:0.8rem;">BOSS HP</span>
+                <span id="hp-pct" style="color:#ff6b9e;font-size:0.8rem;">100%</span>
             </div>
         </div>
         <div id="countdown" style="
             font-size: 4.5rem;
             font-weight: 900;
-            color: #FF4444;
-            text-shadow: 0 0 30px rgba(255,68,68,0.5);
+            color: #00f0ff;
+            text-shadow: 0 0 30px rgba(0,240,255,0.5);
             font-family: monospace;
             margin: 10px 0;
         ">--:--</div>
-        <div id="arena-msg" style="color:#FF6B35;font-weight:700;font-size:1rem;">
+        <div id="arena-msg" style="color:#7832ff;font-weight:700;font-size:1rem;">
             DESTROY THE BOSS!
         </div>
     </div>
@@ -1041,17 +1042,17 @@ def _render_quest_board_tab(data: dict):
         score = assessment["score"]
         reason = assessment["reason"]
         stars = "★" * score + "☆" * (5 - score)
-        star_color = {1: "#888", 2: "#4A90D9", 3: "#F5A623", 4: "#FF6B35", 5: "#FF0000"}
+        star_color = {1: "#6b7b9e", 2: "#4A90D9", 3: "#00f0ff", 4: "#7832ff", 5: "#ff3e8a"}
 
         st.markdown(
-            f'<div style="background:linear-gradient(135deg,#1a1a2e,#0d1117);'
-            f'border:2px solid {star_color.get(score, "#FFD700")};border-radius:12px;padding:16px;">'
+            f'<div style="background:linear-gradient(135deg,#0f1629,#080b16);'
+            f'border:2px solid {star_color.get(score, "#00f0ff")};border-radius:12px;padding:16px;">'
             f'<div style="text-align:center;">'
-            f'<div style="font-size:0.9rem;color:#888;">AI FUTURE IMPACT ASSESSMENT</div>'
-            f'<div style="font-size:2rem;color:#FFD700;letter-spacing:4px;margin:8px 0;">{stars}</div>'
-            f'<div style="font-size:1.5rem;font-weight:900;color:{star_color.get(score, "#FFD700")};">'
+            f'<div style="font-size:0.9rem;color:#6b7b9e;">AI FUTURE IMPACT ASSESSMENT</div>'
+            f'<div style="font-size:2rem;color:#00f0ff;letter-spacing:4px;margin:8px 0;">{stars}</div>'
+            f'<div style="font-size:1.5rem;font-weight:900;color:{star_color.get(score, "#00f0ff")};">'
             f'IMPACT LEVEL {score}</div>'
-            f'<div style="color:#ccc;margin-top:8px;font-size:0.9rem;">💡 {reason}</div>'
+            f'<div style="color:#c0c8d8;margin-top:8px;font-size:0.9rem;">💡 {reason}</div>'
             f'</div></div>',
             unsafe_allow_html=True,
         )
@@ -1120,7 +1121,7 @@ def _render_status_tab(data: dict):
     trophies = profile["total_trophies"]
     for threshold, name, icon in LEVEL_THRESHOLDS:
         reached = trophies >= threshold
-        color = "#FFD700" if reached else "#333"
+        color = "#00f0ff" if reached else "#2a3050"
         marker = "✅" if reached else "🔒"
         st.markdown(
             f'<div style="display:flex;align-items:center;gap:10px;padding:4px 0;">'
