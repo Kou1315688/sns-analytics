@@ -29,11 +29,16 @@ st.set_page_config(
     layout="wide",
 )
 
-# Apple Touch Icon（iPhoneホーム画面用）
-st.markdown(
-    '<link rel="apple-touch-icon" href="./app/static/apple-touch-icon.png">',
-    unsafe_allow_html=True,
-)
+# PWA対応 + Apple Touch Icon
+st.markdown("""
+<link rel="apple-touch-icon" href="./app/static/apple-touch-icon.png">
+<link rel="manifest" href="./app/static/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SNS分析">
+<meta name="theme-color" content="#0E1117">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+""", unsafe_allow_html=True)
 
 # モバイル対応CSS
 st.markdown("""
@@ -42,6 +47,10 @@ st.markdown("""
     .block-container { padding: 1rem 0.5rem !important; }
     [data-testid="stSidebar"] { min-width: 200px !important; }
     .stButton > button { padding: 0.4rem 0.8rem !important; font-size: 0.85rem !important; }
+}
+/* PWAフルスクリーン時のセーフエリア対応 */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .block-container { padding-top: calc(1rem + env(safe-area-inset-top)) !important; }
 }
 </style>
 """, unsafe_allow_html=True)
